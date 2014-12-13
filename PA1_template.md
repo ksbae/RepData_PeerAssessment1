@@ -33,7 +33,7 @@ if (sum(Lens != nInterval) != 0) print("Uneven measurements per day")
 
 ```r
 TotSteps = aggregate(steps ~ date, data=AMD, sum, na.rm=TRUE)
-hist(TotSteps$steps, main="Histogram of Steps without Imputation")
+hist(TotSteps$steps, main="Histogram of Steps without Imputation", xlab="steps")
 ```
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
@@ -59,7 +59,7 @@ median(TotSteps$steps) # 10765
 
 ```r
 AvgSteps = aggregate(steps ~ interval, data=AMD, mean, na.rm=TRUE)
-plot(uInterval, AvgSteps$steps, type="l", ylab="Average Steps")
+plot(uInterval, AvgSteps$steps, type="l", ylab="Average Steps", xlab="interval")
 ```
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
@@ -111,7 +111,7 @@ AMD2[,"steps.im"] = as.vector(mAMD)
 
 ```r
 TotSteps2 = aggregate(steps.im ~ date, data=AMD2, sum, na.rm=TRUE)
-hist(TotSteps2$steps, main="Histogram of Steps with Imputation") # Height of the center is different.
+hist(TotSteps2$steps, main="Histogram of Steps with Imputation", xlab="steps") # Height of the center is different.
 ```
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 

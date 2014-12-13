@@ -30,7 +30,7 @@ if (sum(Lens != nInterval) != 0) print("Uneven measurements per day")
 ### Histogram of Steps without Imputation
 ```{r echo=TRUE}
 TotSteps = aggregate(steps ~ date, data=AMD, sum, na.rm=TRUE)
-hist(TotSteps$steps, main="Histogram of Steps without Imputation")
+hist(TotSteps$steps, main="Histogram of Steps without Imputation", xlab="steps")
 ```
 ### Mean and Median without Imputation
 ```{r echo=TRUE}
@@ -41,7 +41,7 @@ median(TotSteps$steps) # 10765
 ## What is the average daily activity pattern?
 ```{r echo=TRUE}
 AvgSteps = aggregate(steps ~ interval, data=AMD, mean, na.rm=TRUE)
-plot(uInterval, AvgSteps$steps, type="l", ylab="Average Steps")
+plot(uInterval, AvgSteps$steps, type="l", ylab="Average Steps", xlab="interval")
 ```
 
 ### Which 5 min interval contains the maximum number?
@@ -72,7 +72,7 @@ AMD2[,"steps.im"] = as.vector(mAMD)
 ### Histogram of Steps with Imputation
 ```{r echo=TRUE}
 TotSteps2 = aggregate(steps.im ~ date, data=AMD2, sum, na.rm=TRUE)
-hist(TotSteps2$steps, main="Histogram of Steps with Imputation") # Height of the center is different.
+hist(TotSteps2$steps, main="Histogram of Steps with Imputation", xlab="steps") # Height of the center is different.
 ```
 
 ### mean and median of total steps in days
