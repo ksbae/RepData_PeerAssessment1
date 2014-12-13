@@ -111,7 +111,7 @@ AMD2[,"steps.im"] = as.vector(mAMD)
 
 ```r
 TotSteps2 = aggregate(steps.im ~ date, data=AMD2, sum, na.rm=TRUE)
-hist(TotSteps2$steps, main="Histogram of Steps with Imputation")
+hist(TotSteps2$steps, main="Histogram of Steps with Imputation") # Height of the center is different.
 ```
 
 ![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
@@ -119,7 +119,7 @@ hist(TotSteps2$steps, main="Histogram of Steps with Imputation")
 ### mean and median of total steps in days
 
 ```r
-mean(TotSteps2$steps) # 10766.19
+mean(TotSteps2$steps) # 10766.19 same
 ```
 
 ```
@@ -127,7 +127,7 @@ mean(TotSteps2$steps) # 10766.19
 ```
 
 ```r
-median(TotSteps2$steps) # 10766.19
+median(TotSteps2$steps) # 10766.19 slight different from 10765
 ```
 
 ```
@@ -145,7 +145,7 @@ AMD2[,"wday"] = factor(AMD2[,"wday"]) # transform to factor
 
 Steps2 = aggregate(steps ~ interval + wday, AMD2, mean) #no need of na.rm option
 library(lattice)
-xyplot(steps ~ interval | factor(wday), data=Steps2, aspect=1/2, type="l")
+xyplot(steps ~ interval | factor(wday), data=Steps2, aspect=1/2, type="l") # Yes, different
 ```
 
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
